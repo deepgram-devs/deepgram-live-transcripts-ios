@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     private let audioEngine = AVAudioEngine()
     
     private lazy var socket: WebSocket = {
-        let url = URL(string: "wss://api.deepgram.com/v1/listen?encoding=linear16&sample_rate=48000&channels=1")!
+        let url = URL(string: "wss://api.deepgram.com/v1/listen?encoding=linear16&sample_rate=48000&channels=1&model=nova&smart_format=true&filler_words=true")!
         var urlRequest = URLRequest(url: url)
         urlRequest.setValue(apiKey, forHTTPHeaderField: "Authorization")
         return WebSocket(request: urlRequest)
