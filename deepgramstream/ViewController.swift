@@ -30,7 +30,9 @@ class ViewController: UIViewController {
     private let transcriptView: UITextView = {
         let textView = UITextView()
         textView.isScrollEnabled = true
-        textView.backgroundColor = .lightGray
+        textView.backgroundColor = .systemBackground
+        textView.textColor = .label // Use the system label color (light mode/dark mode)
+        textView.font = UIFont.systemFont(ofSize: 24, weight: .regular) // Use a larger, readable font
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
@@ -46,10 +48,10 @@ class ViewController: UIViewController {
     private func setupView() {
         view.addSubview(transcriptView)
         NSLayoutConstraint.activate([
-            transcriptView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            transcriptView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            transcriptView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            transcriptView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            transcriptView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            transcriptView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            transcriptView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            transcriptView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40)
         ])
     }
     
